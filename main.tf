@@ -71,5 +71,9 @@ resource "aws_lambda_function" "lambda" {
     security_group_ids = [aws_security_group.lambda_service.id]
   }
 
+  lifecycle {
+    ignore_changes = [layers, timeout]
+  }
+
   tags = var.tags
 }
