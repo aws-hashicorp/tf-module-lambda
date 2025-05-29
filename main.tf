@@ -64,7 +64,8 @@ resource "aws_lambda_function" "lambda" {
   function_name = var.lambda_function_name
   runtime       = var.lambda_runtime
   role          = aws_iam_role.iam_lambda_role.arn
-
+  filename      = "${path.module}/files/node.zip"
+  handler       = "index.handler"
   vpc_config {
     subnet_ids         = var.subnet_ids
     security_group_ids = [aws_security_group.lambda_service.id]
