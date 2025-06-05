@@ -71,3 +71,9 @@ variable "permissions_name" {
   type        = list(string)
   default     = []
 }
+
+# CloudWatch Logs Variables
+variable "log_group_retention" {
+  description = "The retention period (in days) for the CloudWatch log group"
+  type        = number
+}
